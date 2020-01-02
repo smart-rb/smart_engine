@@ -1,6 +1,6 @@
 # SmartCore::Engine
 
----
+Generic SmartCore functionality.
 
 ## Installation
 
