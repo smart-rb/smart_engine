@@ -10,6 +10,14 @@ module SmartCore
   ArgumentError = Class.new(::ArgumentError)
 
   # @api public
-  # @sinc 0.1.0
-  FrozenError = Class.new(::FrozenError)
+  # @since 0.2.0
+  FrozenError = begin # rubocop:disable Naming/ConstantName
+    # :nocov:
+    if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.5.0')
+      Class.new(::FrozenError)
+    else
+      Class.new(::RuntimeError)
+    end
+    # :nocov:
+  end
 end
