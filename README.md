@@ -20,6 +20,12 @@ require 'smart_core'
 
 ---
 
+## Sub-technologies
+
+- `SmartCore::Error`, `SmartCore::ArgumentError`, `SmartCore::FrozenError` - global error objects for all SmartCore-related libraries;
+
+---
+
 ## Contributing
 
 - Fork it ( https://github.com/smart-rb/smart_engine )
