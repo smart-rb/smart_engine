@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'smart_engine'
+require 'smart_core'
 
 require 'pry'
 Pry.start
