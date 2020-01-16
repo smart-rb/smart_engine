@@ -10,6 +10,10 @@ module SmartCore
   ArgumentError = Class.new(::ArgumentError)
 
   # @api public
+  # @since 0.3.0
+  NameError = Class.new(::NameError)
+
+  # @api public
   # @since 0.2.0
   FrozenError = begin # rubocop:disable Naming/ConstantName
     # :nocov:

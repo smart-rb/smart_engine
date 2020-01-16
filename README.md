@@ -20,9 +20,13 @@ require 'smart_core'
 
 ---
 
-## Sub-technologies
+## Technologies
 
-- `SmartCore::Error`, `SmartCore::ArgumentError`, `SmartCore::FrozenError` - global error objects for all SmartCore-related libraries;
+- **Global set of error types**:
+  - `SmartCore::Error` (inherited from `::StandardError`);
+  - `SmartCore::ArgumentError` (inherited from `::ArgumentError`);
+  - `SmartCore::FrozenError` (inherited from `::FrozenError`);
+  - `SmartCore::NameError` (inherited from `::NameError`);
 
 ---
 
