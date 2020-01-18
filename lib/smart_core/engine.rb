@@ -4,4 +4,5 @@
 # @since 0.1.0
 module SmartCore::Engine
   require_relative 'engine/version'
+  require_relative 'engine/lock'
 end

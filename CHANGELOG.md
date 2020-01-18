@@ -1,7 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.3.0] -202-01-17
+## [0.4.0] - 2020-01-19
+### Added
+- `SmartCore::Engine::Lock` - simple reentrant-based locking primitive;
+
+## [0.3.0] - 2020-01-17
 ### Added
 - Global error type `SmartCore::NameError` inherited from `::NameError`;
 

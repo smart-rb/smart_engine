@@ -22,7 +22,14 @@ require 'smart_core'
 
 ## Technologies
 
-- **Global set of error types**:
+- `SmartCore::Engine::Lock` - simple reentrant lock:
+
+```ruby
+lock = SmartCore::Engine::Lock.new
+lock.synchronize { your_code }
+```
+
+- Global set of error types:
   - `SmartCore::Error` (inherited from `::StandardError`);
   - `SmartCore::ArgumentError` (inherited from `::ArgumentError`);
   - `SmartCore::FrozenError` (inherited from `::FrozenError`);
