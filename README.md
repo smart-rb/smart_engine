@@ -22,15 +22,10 @@ require 'smart_core'
 
 ## Technologies
 
-- [Simple reenternant lock](simple-reenternant-lock);
-- [Global set of error types](global-set-of-error-types);
+- [Global set of error types](#global-set-of-error-types)
+- [Simple reenternant lock](#simple-reenternant-lock)
 
-### Simple reenternant lock
-
-```ruby
-lock = SmartCore::Engine::Lock.new
-lock.synchronize { your_code }
-```
+---
 
 ### Global set of error types
 
@@ -38,6 +33,15 @@ lock.synchronize { your_code }
 - `SmartCore::ArgumentError` (inherited from `::ArgumentError`);
 - `SmartCore::FrozenError` (inherited from `::FrozenError`);
 - `SmartCore::NameError` (inherited from `::NameError`);
+
+---
+
+### Simple reenternant lock
+
+```ruby
+lock = SmartCore::Engine::Lock.new
+lock.synchronize { your_code }
+```
 
 ---
 
