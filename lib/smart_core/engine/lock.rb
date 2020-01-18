@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 # @api public
-# @since 0.1.0
+# @since 0.4.0
 class SmartCore::Engine::Lock
   # @return [void]
   #
   # @api public
-  # @since 0.1.0
+  # @since 0.4.0
   def initialize
     @lock = Mutex.new
   end
@@ -15,7 +15,7 @@ class SmartCore::Engine::Lock
   # @return [Any]
   #
   # @api public
-  # @since 0.1.0
+  # @since 0.4.0
   def synchronize(&block)
     @lock.owned? ? yield : @lock.synchronize(&block)
   end
