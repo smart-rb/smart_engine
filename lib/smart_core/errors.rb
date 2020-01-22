@@ -14,6 +14,10 @@ module SmartCore
   NameError = Class.new(::NameError)
 
   # @api public
+  # @since 0.5.0
+  TypeError = Class.new(::TypeError)
+
+  # @api public
   # @since 0.2.0
   FrozenError = begin # rubocop:disable Naming/ConstantName
     # :nocov:

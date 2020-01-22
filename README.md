@@ -33,6 +33,7 @@ require 'smart_core'
 - `SmartCore::ArgumentError` (inherited from `::ArgumentError`);
 - `SmartCore::FrozenError` (inherited from `::FrozenError`);
 - `SmartCore::NameError` (inherited from `::NameError`);
+- `SmartCore::TypeError` (inherited from `::TypeError`);
 
 ---
 
