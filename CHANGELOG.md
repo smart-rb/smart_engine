@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [0.6.0] - 2020-05-03
+### Added
+- Inline rescue pipe (`SmartCore::Engine::RescueExt.inline_rescue_pipe`);
+- Actualized development dependencies and test environment;
 
 ## [0.5.0] - 2020-01-22
 ### Added
