@@ -54,7 +54,7 @@ lock.synchronize { your_code }
 - provides an error interception interface (a block argument);
 - fails with the last failed proc exception (if all procs were failed and interceptor was not passed);
 
-### Returns the result of the first non-failed proc
+#### Return the result of the first non-failed proc
 
 ```ruby
 SmartCore::Engine::RescueExt.inline_rescue_pipe(
@@ -67,7 +67,7 @@ SmartCore::Engine::RescueExt.inline_rescue_pipe(
 # => output: 123
 ```
 
-### Fails with the last failed proc exception
+### Fail with the last failed proc exception
 
 ```ruby
 SmartCore::Engine::RescueExt.inline_rescue_pipe(
@@ -78,7 +78,7 @@ SmartCore::Engine::RescueExt.inline_rescue_pipe(
 # => fails with ZeroDivisionError
 ```
 
-### Error interception
+#### Error interception
 
 ```ruby
 SmartCore::Engine::RescueExt.inline_rescue_pipe(
