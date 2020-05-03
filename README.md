@@ -24,6 +24,7 @@ require 'smart_core'
 
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reenternant lock](#simple-reenternant-lock)
+- [Inline rescue pipe-line](#inline-rescue-pipe-line)
 
 ---
 
@@ -42,6 +43,52 @@ require 'smart_core'
 ```ruby
 lock = SmartCore::Engine::Lock.new
 lock.synchronize { your_code }
+```
+
+---
+
+### Inline rescue pipe-line
+
+- works with an array of proc objects;
+- returns the result of the first non-failed proc;
+- provides an error interception interface (a block argument);
+- fails with the last failed proc error (if all procs were failed and interceptor was not passed);
+
+### Returns the result of the first non-failed proc
+
+```ruby
+SmartCore::Engine::RescueExt.inline_rescue_pipe(
+  -> { raise },
+  -> { raise },
+  -> { 123 },
+  -> { 567 },
+  -> { raise },
+)
+# => outputs: 123
+```
+
+### Fails with the last failed proc error
+
+```ruby
+SmartCore::Engine::RescueExt.inline_rescue_pipe(
+  -> { raise(::ArgumentError) },
+  -> { raise(::TypeError) },
+  -> { raise(::ZeroDivisionError) }
+)
+# => fails with ZeroDivisionError
+```
+
+### Error interception
+
+```ruby
+SmartCore::Engine::RescueExt.inline_rescue_pipe(
+  -> { raise(::ArgumentError) },
+  -> { raise(::TypeError) },
+  -> { raise(::ZeroDivisionError, 'Intercepted exception') }
+) do |error|
+  error.message
+end
+# => outputs "Intercepted exception"
 ```
 
 ---

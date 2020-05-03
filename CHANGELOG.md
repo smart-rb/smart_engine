@@ -1,6 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2020-05-03
+
 ## [0.5.0] - 2020-01-22
 ### Added
 - Global error type `SmartCore::TypeError` inherited from `::TypeError`;
