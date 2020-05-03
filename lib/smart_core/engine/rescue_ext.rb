@@ -16,7 +16,7 @@ module SmartCore::Engine::RescueExt
   # @api public
   # @since 0.6.0
   # rubocop:disable Performance/RedundantBlockCall
-  def inline_rescue_pipe(*proks)
+  def inline_rescue_pipe(*proks, &error_interceptor)
     unless proks.all? { |prok| prok.is_a?(::Proc) }
       raise(SmartCore::ArgumentError, 'Invalid proc object')
     end
