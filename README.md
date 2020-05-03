@@ -67,7 +67,7 @@ SmartCore::Engine::RescueExt.inline_rescue_pipe(
 # => output: 123
 ```
 
-### Fail with the last failed proc exception
+#### Fail with the last failed proc exception
 
 ```ruby
 SmartCore::Engine::RescueExt.inline_rescue_pipe(
