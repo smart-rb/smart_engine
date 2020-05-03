@@ -7,6 +7,7 @@ RSpec.describe SmartCore::Engine::RescueExt do
         -> { raise },
         -> { raise },
         -> { :pipe_3 },
+        -> { :pipe_4 },
         -> { raise }
       )
 
