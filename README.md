@@ -23,7 +23,7 @@ require 'smart_core'
 ## Technologies
 
 - [Global set of error types](#global-set-of-error-types)
-- [Simple reenternant lock](#simple-reenternant-lock)
+- [Simple reentrant lock](#simple-reentrant-lock)
 - [Inline rescue pipe](#inline-rescue-pipe)
 
 ---
@@ -38,7 +38,7 @@ require 'smart_core'
 
 ---
 
-### Simple reenternant lock
+### Simple reentrant lock
 
 ```ruby
 lock = SmartCore::Engine::Lock.new
