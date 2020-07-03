@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- Atomic threadsafe value container (`SmartCore::Engine::Atom`);
+
 ## [0.6.0] - 2020-05-03
 ### Added
 - Inline rescue pipe (`SmartCore::Engine::RescueExt.inline_rescue_pipe`);
