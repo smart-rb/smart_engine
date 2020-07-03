@@ -18,7 +18,7 @@ class SmartCore::Engine::Atom
   # @api public
   # @since 0.1.0
   def value
-    whith_barrier { @value }
+    with_barrier { @value }
   end
 
   # @return [Any]
