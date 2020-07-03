@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smart_engine (0.6.0)
+    smart_engine (0.7.0)
 
 GEM
   remote: https://rubygems.org/
