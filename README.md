@@ -62,6 +62,8 @@ atom.swap { |original_value| original_value * 2 }
 atom.value # => 14
 ```
 
+---
+
 ### Inline rescue pipe
 
 - works with an array of proc objects;
