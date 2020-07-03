@@ -24,6 +24,7 @@ require 'smart_core'
 
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reentrant lock](#simple-reentrant-lock)
+- [Atomic thread-safe value container](#atomic-thread-safe-value-container)
 - [Inline rescue pipe](#inline-rescue-pipe)
 
 ---
@@ -46,6 +47,20 @@ lock.synchronize { your_code }
 ```
 
 ---
+
+### Atomic thread-safe value container
+
+```ruby
+atom = SmartCore::Engine::Atom.new # initial value - nil
+atom.value # => nil
+# --- or ---
+atom = SmartCore::Engine::Atom.new(7) # initial value - 7
+atom.value # => 7
+
+# set new value (thread-safely)
+atom.swap { |original_value| original_value * 2 }
+atom.value # => 14
+```
 
 ### Inline rescue pipe
 
