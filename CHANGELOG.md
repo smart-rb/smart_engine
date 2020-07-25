@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.8.0] - 2020-07-25
+### Added
+- Any object frozener (`SmartCore::Engine::Frozener`, `SmartCore::Engine::Frozener::Mixin`);
+
 ## [0.7.0] - 2020-07-03
 ### Added
 - Atomic threadsafe value container (`SmartCore::Engine::Atom`);
