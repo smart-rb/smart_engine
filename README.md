@@ -25,7 +25,7 @@ require 'smart_core'
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reentrant lock](#simple-reentrant-lock)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
-- [Any Object Frozener](#any-object-frozener)
+- [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
 - [Inline rescue pipe](#inline-rescue-pipe)
 
 ---
@@ -68,6 +68,7 @@ atom.value # => 14
 ### Any Object Frozener
 
 - works with any type of ruby objects (event with `BasicObject`);
+- uses classic Ruby C-level `frozen?`/`freeze` functionality;
 
 ```ruby
 # as a singleton
