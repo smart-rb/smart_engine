@@ -7,4 +7,5 @@ module SmartCore::Engine
   require_relative 'engine/lock'
   require_relative 'engine/rescue_ext'
   require_relative 'engine/atom'
+  require_relative 'engine/frozener'
 end

@@ -2,7 +2,7 @@
 
 RSpec.describe SmartCore::Engine::Atom do
   context 'without initial value' do
-    let(:atom) { described_class.new }
+    let(:atom) { SmartCore::Engine::Atom.new }
 
     specify 'value swap' do
       expect(atom.value).to eq(nil)
@@ -18,7 +18,7 @@ RSpec.describe SmartCore::Engine::Atom do
   end
 
   context 'with initial value' do
-    let(:atom) { described_class.new('overwatch') }
+    let(:atom) { SmartCore::Engine::Atom.new('overwatch') }
 
     specify 'value swap' do
       expect(atom.value).to eq('overwatch')

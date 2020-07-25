@@ -13,3 +13,7 @@ AllCops:
     - Rakefile
     - smart_engine.gemspec
     - bin/console
+
+# NOTE: for better representativeness of test examples
+RSpec/DescribedClass:
+  Enabled: false

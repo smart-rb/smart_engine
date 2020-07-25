@@ -25,6 +25,7 @@ require 'smart_core'
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reentrant lock](#simple-reentrant-lock)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
+- [Any Object Frozener](#any-object-frozener)
 - [Inline rescue pipe](#inline-rescue-pipe)
 
 ---
@@ -60,6 +61,36 @@ atom.value # => 7
 # set new value (thread-safely)
 atom.swap { |original_value| original_value * 2 }
 atom.value # => 14
+```
+
+---
+
+### Any Object Frozener
+
+- works with any type of ruby objects (event with `BasicObject`);
+
+```ruby
+# as a singleton
+
+object = BasicObject.new
+SmartCore::Engine::Frozener.frozen?(object) # => false
+
+SmartCore::Engine::Frozener.freeze(object)
+SmartCore::Engine::Frozener.frozen?(object) # => true
+```
+
+```ruby
+# as a mixin
+
+class EmptyObject < BasicObject
+  include SmartCore::Engine::Frozener::Mixin
+end
+
+object = EmptyObject.new
+
+object.frozen? # => false
+object.freeze
+object.frozen? # => true
 ```
 
 ---
