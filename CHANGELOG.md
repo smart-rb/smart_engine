@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.9.0] - 2020-12-20
+### Added
+- New type of utilities: *Extensions* (`SmartCore::Ext`);
+- New extension: `SmartCore::Ext::BasicObjectAsObject` refinement:
+  - `using SmartCore::Ext::BasicObjectAsObject` provides native support for:
+    - `BasicObject#is_a?`;
+    - `BasicObject#kind_of?`;
+    - `BasicObject#freeze`;
+    - `BasicObject#frozen?`;
+
+### Changed
+- Updated development dependencies;
+- Support for *Ruby@2.4* has ended;
+
+### Fixed
+- `SmartCore::Engine::Frozener` can not be used with rubies lower than `@2.7`;
+
 ## [0.8.0] - 2020-07-25
 ### Added
 - Any object frozener (`SmartCore::Engine::Frozener`, `SmartCore::Engine::Frozener::Mixin`);
