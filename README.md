@@ -130,7 +130,6 @@ basic_obj.kind_of?(::Integer) # => false
 basic_obj.frozen? # => false
 basic_obj.freeze # => self
 basic_obj.frozen? # => true
-
 ```
 
 ---
