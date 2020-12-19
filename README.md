@@ -26,6 +26,7 @@ require 'smart_core'
 - [Simple reentrant lock](#simple-reentrant-lock)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
 - [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
+- [Basic Object Refinements](#basic-object-refinements)
 - [Inline rescue pipe](#inline-rescue-pipe)
 
 ---
@@ -92,6 +93,44 @@ object = EmptyObject.new
 object.frozen? # => false
 object.freeze
 object.frozen? # => true
+```
+
+---
+
+### Basic Object Refinements
+
+Ruby's `BasicObject` class does not have some fundamental (extremely important) methods:
+
+- `is_a?` / `kind_of?`
+- `freeze` / `frozen?`
+
+`SmartCore::Ext::BasicObjectAsObject` refinement solves this problem.
+
+```ruby
+# without refinement:
+basic_obj = ::BasicObject.new
+
+basic_obj.is_a?(::BasicObject) # raises ::NoMethodError
+basic_obj.kind_of?(::BasicObject) # raises ::NoMethodError
+basic_obj.freeze # raises ::NoMethodError
+basic_obj.frozen? # raises ::NoMethodError
+```
+
+```ruby
+# with refinement:
+using SmartCore::Ext::BasicObjectAsObject
+
+basic_obj = ::BasicObject.new
+
+basic_obj.is_a?(::BasicObject) # => true
+basic_obj.kind_of?(::BasicObject)
+basic_obj.is_a?(::Integer) # => false
+basic_obj.kind_of?(::Integer) # => false
+
+basic_obj.frozen? # => false
+basic_obj.freeze # => self
+basic_obj.frozen? # => true
+
 ```
 
 ---

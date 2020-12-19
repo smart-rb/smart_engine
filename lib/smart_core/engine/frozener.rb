@@ -2,6 +2,7 @@
 
 # @api public
 # @since 0.8.0
+# @version 0.9.0
 module SmartCore::Engine::Frozener
   # @api public
   # @since 0.8.0
@@ -41,8 +42,9 @@ module SmartCore::Engine::Frozener
     #
     # @api public
     # @since 0.8.0
+    # @version 0.9.0
     def freeze(object)
-      FROZENER.bind_call(object)
+      FROZENER.bind(object).call
     end
 
     # @param object [Any]
@@ -50,8 +52,9 @@ module SmartCore::Engine::Frozener
     #
     # @api public
     # @since 0.8.0
+    # @version 0.9.0
     def frozen?(object)
-      FROZEN_CHECK.bind_call(object)
+      FROZEN_CHECK.bind(object).call
     end
   end
 end
