@@ -26,7 +26,7 @@ require 'smart_core'
 - [Simple reentrant lock](#simple-reentrant-lock)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
 - [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
-- [Basic Object Refinements](#basic-object-refinements)
+- [Basic Object Refinements](#basic-object-refinements) (`SmartCore::Ext::BasicObjectAsObject`)
 - [Inline rescue pipe](#inline-rescue-pipe)
 
 ---
