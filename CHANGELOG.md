@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.10.0] - 2020-12-21
+### Added
+- Support for `#hash` and `#instance_of?` for `SmartCore::Ext::BasicObjectAsObject` refinement;
+
 ## [0.9.0] - 2020-12-20
 ### Added
 - New type of utilities: *Extensions* (`SmartCore::Ext`);

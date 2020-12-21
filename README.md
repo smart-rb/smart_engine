@@ -99,10 +99,13 @@ object.frozen? # => true
 
 ### Basic Object Refinements
 
-Ruby's `BasicObject` class does not have some fundamental (extremely important) methods:
+Ruby's `BasicObject` class does not have some fundamental (extremely important for instrumenting) methods:
 
 - `is_a?` / `kind_of?`
+- `instance_of?`
 - `freeze` / `frozen?`
+- `hash`
+- `nil?`
 
 `SmartCore::Ext::BasicObjectAsObject` refinement solves this problem.
 
@@ -112,6 +115,7 @@ basic_obj = ::BasicObject.new
 
 basic_obj.is_a?(::BasicObject) # raises ::NoMethodError
 basic_obj.kind_of?(::BasicObject) # raises ::NoMethodError
+basic_obj.instance_of?(::BasicObject) # rasies ::NoMethodError
 basic_obj.freeze # raises ::NoMethodError
 basic_obj.frozen? # raises ::NoMethodError
 ```
@@ -123,7 +127,9 @@ using SmartCore::Ext::BasicObjectAsObject
 basic_obj = ::BasicObject.new
 
 basic_obj.is_a?(::BasicObject) # => true
-basic_obj.kind_of?(::BasicObject)
+basic_obj.kind_of?(::BasicObject) # => true
+basic_obj.instance_of?(::BasicObject) # => true
+basic_obj.instance_of?(::Object) # => false
 basic_obj.is_a?(::Integer) # => false
 basic_obj.kind_of?(::Integer) # => false
 
