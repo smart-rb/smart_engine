@@ -104,7 +104,7 @@ Ruby's `BasicObject` class does not have some fundamental (extremely important) 
 - `is_a?` / `kind_of?`
 - `freeze` / `frozen?`
 
-`SmartCore::Ext::BasicObjectAsObject` refinement solves this problem.
+`SmartCore::Ext::BasicObjectAsObject` refinement solves this problem (by Ruby's internal API without any manualy-emulated behavior).
 
 ```ruby
 # without refinement:
