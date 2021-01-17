@@ -1,4 +1,4 @@
-# SmartCore::Engine &middot; [![Gem Version](https://badge.fury.io/rb/smart_engine.svg)](https://badge.fury.io/rb/smart_engine) [![Build Status](https://travis-ci.org/smart-rb/smart_engine.svg?branch=master)](https://travis-ci.org/smart-rb/smart_engine)
+# SmartCore::Engine &middot; [![Gem Version](https://badge.fury.io/rb/smart_engine.svg)](https://badge.fury.io/rb/smart_engine)
 
 Generic SmartCore functionality.
 
@@ -189,6 +189,7 @@ end
 
 ## Roadmap
 
+- migrate to Github Actions in CI;
 - thread-safety for BasicObject extensions;
 
 ---
