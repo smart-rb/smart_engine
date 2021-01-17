@@ -28,7 +28,6 @@ require 'smart_core'
 - [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
 - [Basic Object Refinements](#basic-object-refinements) (`SmartCore::Ext::BasicObjectAsObject`)
 - [Inline rescue pipe](#inline-rescue-pipe)
-- [Roadmap](#roadmap)
 
 ---
 
