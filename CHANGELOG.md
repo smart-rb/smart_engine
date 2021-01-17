@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.11.0] - 2021-01-17
+### Added
+- Support for *Ruby@3*;
+
 ## [0.10.0] - 2020-12-22
 ### Added
 - Support for `#hash` and `#instance_of?` for `SmartCore::Ext::BasicObjectAsObject` refinement;
