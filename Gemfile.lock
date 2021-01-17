@@ -91,7 +91,7 @@ PLATFORMS
 
 DEPENDENCIES
   armitage-rubocop (~> 1.7)
-  bundler (~> 2.1)
+  bundler (~> 2.2)
   pry (~> 0.13)
   rake (~> 13.0)
   rspec (~> 3.10)
