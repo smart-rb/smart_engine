@@ -118,6 +118,8 @@ basic_obj.kind_of?(::BasicObject) # raises ::NoMethodError
 basic_obj.instance_of?(::BasicObject) # rasies ::NoMethodError
 basic_obj.freeze # raises ::NoMethodError
 basic_obj.frozen? # raises ::NoMethodError
+basic_object.hash # raises ::NoMethodError
+basic_object.nil? # raises ::NoMethodError
 ```
 
 ```ruby
@@ -136,6 +138,10 @@ basic_obj.kind_of?(::Integer) # => false
 basic_obj.frozen? # => false
 basic_obj.freeze # => self
 basic_obj.frozen? # => true
+
+basic_obj.nil? # => false
+
+basic_obj.hash # => 2682859680348634421 (some Integer value)
 ```
 
 ---

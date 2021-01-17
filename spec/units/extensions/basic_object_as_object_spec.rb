@@ -33,6 +33,7 @@ RSpec.describe SmartCore::Ext::BasicObjectAsObject do
     end
 
     aggregate_failures 'support for #hash' do
+      binding.pry
       expect(basic_obj_a.hash).to be_a(::Integer)
       expect(basic_obj_b.hash).to be_a(::Integer)
 
