@@ -194,8 +194,9 @@ end
 
 ## Roadmap
 
-- migrate to Github Actions in CI;
+- migrate to Github Actions CI;
 - thread-safety for BasicObject extensions;
+- type safety via [RBS](https://github.com/ruby/rbs) and [Steep](https://github.com/soutaro/steep);
 
 ---
 
