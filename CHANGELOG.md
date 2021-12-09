@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.12.0] - 2021-12-09
+### Added
+- `using SmartCore::Ext::BasicObjectAsObject` provides native support for:
+  - `BasicObject#inspect`;
+
 ## [0.11.0] - 2021-01-17
 ### Added
 - Support for **Ruby@3**;
