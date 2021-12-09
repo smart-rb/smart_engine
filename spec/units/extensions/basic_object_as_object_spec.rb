@@ -33,7 +33,6 @@ RSpec.describe SmartCore::Ext::BasicObjectAsObject do
     end
 
     aggregate_failures 'support for #hash' do
-      binding.pry
       expect(basic_obj_a.hash).to be_a(::Integer)
       expect(basic_obj_b.hash).to be_a(::Integer)
 
@@ -55,6 +54,11 @@ RSpec.describe SmartCore::Ext::BasicObjectAsObject do
       expect(basic_obj_a.instance_of?(::BasicObject)).to eq(true)
       expect(basic_obj_b.instance_of?(::Object)).to eq(false)
       expect(basic_obj_b.instance_of?(::BasicObject)).to eq(true)
+    end
+
+    aggregate_failures 'support for #inspect' do
+      expect(basic_obj_a.inspect).to include("BasicObject")
+      expect(basic_obj_b.inspect).to include("BasicObject")
     end
   end
 end

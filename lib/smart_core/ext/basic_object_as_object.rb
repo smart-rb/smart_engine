@@ -13,6 +13,7 @@ module SmartCore::Ext::BasicObjectAsObject
     _hash        = _m_obj.method(:hash).unbind.tap(&:freeze)
     _nil         = _m_obj.method(:nil?).unbind.tap(&:freeze)
     _instance_of = _m_obj.method(:instance_of?).unbind.tap(&:freeze)
+    _inspect     = _m_obj.method(:inspect).unbind.tap(&:freeze)
 
     # @note Object#is_a? behavior copy
     # @param klass [Class]
@@ -65,6 +66,14 @@ module SmartCore::Ext::BasicObjectAsObject
     # @since 0.1.0
     define_method(:instance_of?) do |klass|
       _instance_of.bind(self).call(klass)
+    end
+
+    # @return [String]
+    #
+    # @api public
+    # @since 0.12.0
+    define_method(:inspect) do
+      _inspect.bind(self).call
     end
   end
 end
