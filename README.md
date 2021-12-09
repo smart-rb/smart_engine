@@ -130,6 +130,7 @@ basic_obj.freeze # raises ::NoMethodError
 basic_obj.frozen? # raises ::NoMethodError
 basic_object.hash # raises ::NoMethodError
 basic_object.nil? # raises ::NoMethodError
+basic_object.inspect # raises ::NoMethodError
 ```
 
 ```ruby
@@ -152,6 +153,8 @@ basic_obj.frozen? # => true
 basic_obj.nil? # => false
 
 basic_obj.hash # => 2682859680348634421 (some Integer value)
+
+basic_obj.inspect # => "#<BasicObject:0x00007fe428018628>"
 ```
 
 ---
