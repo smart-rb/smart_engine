@@ -116,6 +116,7 @@ Ruby's `BasicObject` class does not have some fundamental (extremely important f
 - `freeze` / `frozen?`
 - `hash`
 - `nil?`
+- `inspect`
 
 `SmartCore::Ext::BasicObjectAsObject` refinement solves this problem (by Ruby's internal API without any manualy-emulated behavior).
 
