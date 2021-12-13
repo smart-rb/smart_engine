@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Changed
+- Minimal Ruby version is `2.5` (`>= 2.5`);
+- Better `BasicObject`'s refinement extention specs;
+- Updated development dependencies;
+
 ## [0.12.0] - 2021-12-09
 ### Added
 - `using SmartCore::Ext::BasicObjectAsObject` provides native support for:

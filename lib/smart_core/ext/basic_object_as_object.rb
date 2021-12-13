@@ -22,7 +22,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.9.0
     define_method(:is_a?) do |klass|
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _is_a.bind(self).call(klass)
+      # rubocop:enable Performance/BindCall
     end
     alias_method :kind_of?, :is_a?
 
@@ -32,7 +35,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.9.0
     define_method(:freeze) do
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _freeze.bind(self).call
+      # rubocop:enable Performance/BindCall
     end
 
     # @note Object#frozen? behavior copy
@@ -41,7 +47,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.9.0
     define_method(:frozen?) do
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _frozen.bind(self).call
+      # rubocop:enable Performance/BindCall
     end
 
     # @return [Integer]
@@ -49,7 +58,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.10.0
     define_method(:hash) do
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _hash.bind(self).call
+      # rubocop:enable Performance/BindCall
     end
 
     # @return [Boolean]
@@ -57,7 +69,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.10.0
     define_method(:nil?) do
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _nil.bind(self).call
+      # rubocop:enable Performance/BindCall
     end
 
     # @return [Boolean]
@@ -65,7 +80,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.1.0
     define_method(:instance_of?) do |klass|
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _instance_of.bind(self).call(klass)
+      # rubocop:enable Performance/BindCall
     end
 
     # @return [String]
@@ -73,7 +91,10 @@ module SmartCore::Ext::BasicObjectAsObject
     # @api public
     # @since 0.12.0
     define_method(:inspect) do
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       _inspect.bind(self).call
+      # rubocop:enable Performance/BindCall
     end
   end
 end

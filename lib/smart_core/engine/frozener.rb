@@ -44,7 +44,10 @@ module SmartCore::Engine::Frozener
     # @since 0.8.0
     # @version 0.9.0
     def freeze(object)
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       FROZENER.bind(object).call
+      # rubocop:enable Performance/BindCall
     end
 
     # @param object [Any]
@@ -54,7 +57,10 @@ module SmartCore::Engine::Frozener
     # @since 0.8.0
     # @version 0.9.0
     def frozen?(object)
+      # rubocop:disable Performance/BindCall
+      # NOTE: disabled in order to support older Ruby versions than Ruby@3
       FROZEN_CHECK.bind(object).call
+      # rubocop:enable Performance/BindCall
     end
   end
 end

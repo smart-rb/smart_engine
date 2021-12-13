@@ -19,13 +19,14 @@ module SmartCore
 
   # @api public
   # @since 0.2.0
-  FrozenError = begin # rubocop:disable Naming/ConstantName
+  FrozenError = # rubocop:disable Naming/ConstantName
     # :nocov:
+    # rubocop:disable Layout/CommentIndentation
     if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.5.0')
       Class.new(::FrozenError)
     else
       Class.new(::RuntimeError)
     end
     # :nocov:
-  end
+    # rubocop:enable Layout/CommentIndentation
 end
