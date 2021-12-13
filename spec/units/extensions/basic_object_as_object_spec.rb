@@ -57,8 +57,8 @@ RSpec.describe SmartCore::Ext::BasicObjectAsObject do
     end
 
     aggregate_failures 'support for #inspect' do
-      expect(basic_obj_a.inspect).to match(/#<BasicObject:.+?>/)
-      expect(basic_obj_b.inspect).to match(/#<BasicObject:.+?>/)
+      expect(basic_obj_a.inspect).to match(/\A#<BasicObject:.+?>\z/)
+      expect(basic_obj_b.inspect).to match(/\A#<BasicObject:.+?>\z/)
     end
   end
 end
