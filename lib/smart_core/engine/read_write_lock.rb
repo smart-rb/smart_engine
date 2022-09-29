@@ -42,14 +42,19 @@ class SmartCore::Engine::ReadWriteLock
   #
   # @api public
   # @since 0.14.0
+  # @version 0.16.0
   def write_sync(&block)
-    while @active_reader do; end
-    @write_lock.synchronize do
-      @active_reader = true
-      begin
-        yield
-      ensure
-        @active_reader = false
+    if @write_lock.owned?
+      yield
+    else
+      while @active_reader do; end
+      @write_lock.synchronize do
+        @active_reader = true
+        begin
+          yield
+        ensure
+          @active_reader = false
+        end
       end
     end
   end

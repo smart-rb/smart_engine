@@ -31,6 +31,7 @@ RSpec.describe SmartCore::Engine::ReadWriteLock do
     expect(output.chars).to contain_exactly(*%w[1 2 3 4 5 6 7 8 9])
   end
 
+  # rubocop:disable Naming/VariableName
   specify 'checking that is write lock is owned by current thread or not' do
     lock = SmartCore::Engine::ReadWriteLock.new
     __GBL_SMRTNGN_RSPC_THRD_CHK__ = false
@@ -38,6 +39,18 @@ RSpec.describe SmartCore::Engine::ReadWriteLock do
     sleep(1) # wait for value change
     expect(lock.write_owned?).to eq(false) # current thread - no
     expect(__GBL_SMRTNGN_RSPC_THRD_CHK__).to eq(true) # other thread - yes
+  end
+  # rubocop:enable Naming/VariableName
+
+  specify 'has no dead-locks when the current thrad has already acquired the lock' do
+    lock = SmartCore::Engine::ReadWriteLock.new
+    output = +''
+
+    expect do
+      lock.write_sync { lock.write_sync { lock.write_sync { output << '1' } } }
+    end.not_to raise_error
+
+    expect(output).to eq('1')
   end
 end
 # rubocop:enable Style/Semicolon
