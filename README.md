@@ -65,11 +65,13 @@ lock.synchronize { your_code }
 ### Cache Storage
 
 - you can use any object as a cache key;
-- you can store any object;
+- you can store any object as a cache value;
+- you can cache `nil` object too;
+
 - cache `read` has `fetch` semantics:
   - signature: `#read(key, &fallback)`;
   - in the event of cache miss the `&fallback` black will be invoked;
-  - the return value of the block will be written to the cache, and that return value will be returned;
+  - the return value of the fallback block will be written to the cache, and that return value will be returned;
 - cache `write`:
   - signature: `#write(key, value)`;
   - you can use any object as a cache key;
@@ -108,6 +110,10 @@ cache[:key1] = 'test'
 
 # read:
 cache[:key1] # => 'test'
+
+# read with fallback:
+cache[:key2] { 'test2' } # => 'test2'
+cache[:key2] # => 'test2'
 ```
 
 ---
