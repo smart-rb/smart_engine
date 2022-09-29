@@ -34,10 +34,12 @@ require 'smart_core'
 
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reentrant lock](#simple-reentrant-lock)
+- [Cache Storage](#cache-storage)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
 - [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
 - [Basic Object Refinements](#basic-object-refinements) (`SmartCore::Ext::BasicObjectAsObject`)
 - [Inline rescue pipe](#inline-rescue-pipe)
+
 
 ---
 
@@ -56,6 +58,56 @@ require 'smart_core'
 ```ruby
 lock = SmartCore::Engine::Lock.new
 lock.synchronize { your_code }
+```
+
+---
+
+### Cache Storage
+
+- you can use any object as a cache key;
+- you can store any object;
+- cache `read` has `fetch` semantics:
+  - signature: `#read(key, &fallback)`;
+  - in the event of cache miss the `&fallback` black will be invoked;
+  - the return value of the block will be written to the cache, and that return value will be returned;
+- cache `write`:
+  - signature: `#write(key, value)`;
+  - you can use any object as a cache key;
+  - you can store any object as a value;
+  - you can write `nil` object too;
+- cache clear:
+  - signature: `#clear`;
+
+```ruby
+cache = SmartCore::Engine::Cache.new
+
+# write and read
+cache.write(:amount, 123.456) # => 123.456
+cache.read(:amount) # => 123.456
+
+# read non-existing with a fallback
+cache.read('name') # => nil
+cache.read('name') { 'D@iVeR' } # => 'D@iVeR'
+cache.read('name') # => 'D@iVeR'
+
+# store nil object
+cache.write(:nil_value, nil) # => nil
+cache.read(:nil_value) # => nil
+cache.read(:nil_value) { 'rewritten' } # => nil
+cache.read(:nil_value) # => nil
+
+# clear cache
+cache.clear # => nil
+```
+
+```ruby
+# aliases:
+
+# write:
+cache[:key1] = 'test'
+
+# read:
+cache[:key1] # => 'test'
 ```
 
 ---
@@ -210,6 +262,13 @@ end
 
 - migrate to Github Actions in CI;
 - thread-safety for BasicObject extensions;
+- `SmartCore::Engine::Cache`:
+  - thread-safety;
+  - support for `ttl:` option for `#write` and for fallback block attribute of `#read`;
+  - support for key-value-pair iteration;
+  - support for `#keys` method;
+  - support for `#key?` method;
+  - think about some layer of cache object serialization;
 
 ---
 

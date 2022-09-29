@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- Simplest in-memory cache storage implementation: `SmartCore::Engine::Cache`;
 ### Changed
 - Minimal Ruby version is `2.5` (`>= 2.5`);
 - Better `BasicObject`'s refinement extention specs;
