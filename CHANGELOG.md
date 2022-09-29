@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.14.0] - 2022-09-30
+### Added
+- Read/Write locking mechanizm: `SmartCore::Engine::ReadWriteLock`;
+
 ## [0.13.0] - 2022-09-30
 ### Added
 - Simplest in-memory cache storage implementation: `SmartCore::Engine::Cache`;

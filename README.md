@@ -34,6 +34,7 @@ require 'smart_core'
 
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reentrant lock](#simple-reentrant-lock)
+- [Read/Write Lock](#read-write-lock)
 - [Cache Storage](#cache-storage)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
 - [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
@@ -58,6 +59,23 @@ require 'smart_core'
 ```ruby
 lock = SmartCore::Engine::Lock.new
 lock.synchronize { your_code }
+```
+
+---
+
+### Read/Write Lock
+
+- non-controlable reader count;
+- readers does not lock each other;
+- readers waits for writer;
+- writer waits for readers;
+
+```ruby
+lock = SmartCore::Engine::ReadWriteLock.new
+
+lock.read_sync { ...some-read-op... } # waits for writer
+lock.read_sync { ...some-read-op... } # waits for writer
+lock.write_sync { ... some-write-op... } # waits for all readers and current writer
 ```
 
 ---
@@ -275,6 +293,8 @@ end
   - support for `#keys` method;
   - support for `#key?` method;
   - think about some layer of cache object serialization;
+- `SmartCore::Engine::ReadWriteLock`:
+  - an ability to set a maximum count of readers;
 
 ---
 

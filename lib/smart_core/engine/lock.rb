@@ -8,7 +8,7 @@ class SmartCore::Engine::Lock
   # @api public
   # @since 0.4.0
   def initialize
-    @lock = Mutex.new
+    @lock = ::Mutex.new
   end
 
   # @param block [Block]
