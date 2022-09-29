@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.13.0] - 2022-09-30
 ### Added
 - Simplest in-memory cache storage implementation: `SmartCore::Engine::Cache`;
 ### Changed
