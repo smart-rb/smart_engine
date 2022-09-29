@@ -6,12 +6,12 @@ RSpec.describe SmartCore::Engine::RescueExt do
       result = SmartCore::Engine::RescueExt.inline_rescue_pipe(
         -> { raise },
         -> { raise },
-        -> { :pipe_3 },
-        -> { :pipe_4 },
+        -> { :pipe3 },
+        -> { :pipe4 },
         -> { raise }
       )
 
-      expect(result).to eq(:pipe_3)
+      expect(result).to eq(:pipe3)
     end
 
     specify 'provides custom error wrapper' do

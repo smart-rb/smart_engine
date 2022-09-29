@@ -21,13 +21,13 @@ RSpec.describe SmartCore::Engine::Cache do
     end
 
     specify 'read an existing key with fallback' do
-      value_1 = Object.new
-      value_2 = 'another-object'
+      value1 = Object.new
+      value2 = 'another-object'
 
-      cache.write(:test1, value_1)
+      cache.write(:test1, value1)
 
-      expect(cache.read(:test1) { value_2 }).to eq(value_1)
-      expect(cache.read(:test1)).to eq(value_1)
+      expect(cache.read(:test1) { value2 }).to eq(value1)
+      expect(cache.read(:test1)).to eq(value1)
     end
 
     specify 'read a non-existing key with fallback' do
@@ -90,7 +90,7 @@ RSpec.describe SmartCore::Engine::Cache do
       object_key, some_object = Object.new, Object.new
       string_key, some_string = 'test1', 'some-string'
       symbol_key, some_symbol = :test, :some_symbol
-      number_key, some_number = 12345, 7776655
+      number_key, some_number = 12_345, 7_776_655
       float_key, some_float = 123.456, 555.666
       hash_key, some_hash = { a: 1 }, { b: 100, c: 200 }
       time_key, some_time = Time.now, Time.now

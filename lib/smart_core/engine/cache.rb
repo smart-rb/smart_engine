@@ -28,12 +28,14 @@ class SmartCore::Engine::Cache
   #
   # @api public
   # @since 0.13.0
+  # rubocop:disable Style/NestedTernaryOperator
   def read(key, &fallback)
     # @note
     #   key?-flow is a compromise used to provide an ability to cache `nil` objects too.
     @store.key?(key) ? @store[key] : (block_given? ? write(key, yield) : nil)
   end
   alias_method :[], :read
+  # rubocop:enable Style/NestedTernaryOperator
 
   # @return [NilClass]
   #
