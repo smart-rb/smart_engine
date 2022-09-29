@@ -76,6 +76,9 @@ lock = SmartCore::Engine::ReadWriteLock.new
 lock.read_sync { ...some-read-op... } # waits for writer
 lock.read_sync { ...some-read-op... } # waits for writer
 lock.write_sync { ... some-write-op... } # waits for all readers and current writer
+
+# is owned?
+lock.write_owned? # true or false
 ```
 
 ---

@@ -30,5 +30,14 @@ RSpec.describe SmartCore::Engine::ReadWriteLock do
 
     expect(output.chars).to contain_exactly(*%w[1 2 3 4 5 6 7 8 9])
   end
+
+  specify 'checking that is write lock is owned by current thread or not' do
+    lock = SmartCore::Engine::ReadWriteLock.new
+    __GBL_SMRTNGN_RSPC_THRD_CHK__ = false
+    Thread.new { lock.write_sync { __GBL_SMRTNGN_RSPC_THRD_CHK__ = lock.write_owned?; sleep(3) } }
+    sleep(1) # wait for value change
+    expect(lock.write_owned?).to eq(false) # current thread - no
+    expect(__GBL_SMRTNGN_RSPC_THRD_CHK__).to eq(true) # other thread - yes
+  end
 end
 # rubocop:enable Style/Semicolon

@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.15.0] - 2022-09-30
+### Added
+- `SmartCore::Engine::ReadWriteLock#write_owned?` - checking that write lock is owned by current thread or not;
+
 ## [0.14.0] - 2022-09-30
 ### Added
 - Read/Write locking mechanizm: `SmartCore::Engine::ReadWriteLock`;

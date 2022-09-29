@@ -2,6 +2,7 @@
 
 # @api public
 # @since 0.14.0
+# @version 0.15.0
 class SmartCore::Engine::ReadWriteLock
   # @return [void]
   #
@@ -26,6 +27,14 @@ class SmartCore::Engine::ReadWriteLock
     yield
   ensure
     @active_reader = false
+  end
+
+  # @return [Boolean]
+  #
+  # @api public
+  # @since 0.15.0
+  def write_owned?
+    @write_lock.owned?
   end
 
   # @param block [Block]
