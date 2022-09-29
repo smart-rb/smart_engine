@@ -9,6 +9,7 @@ class SmartCore::Engine::Cache
   # @since 0.13.0
   def initialize
     @store = {}
+    # TODO: thread-safety (use SmartCore::Engine::Lock)
   end
 
   # @param key [Any]
