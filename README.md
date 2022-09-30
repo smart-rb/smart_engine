@@ -34,7 +34,7 @@ require 'smart_core'
 
 - [Global set of error types](#global-set-of-error-types)
 - [Simple reentrant lock](#simple-reentrant-lock)
-- [Read/Write Lock](#read-write-lock)
+- [Read/Write Lock](#readwrite-lock)
 - [Cache Storage](#cache-storage)
 - [Atomic thread-safe value container](#atomic-thread-safe-value-container)
 - [Any Object Frozener](#any-object-frozener) (classic c-level `frozen?`/`freeze`)
