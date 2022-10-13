@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.17.0] - 2022-10-14
+### Changed
+- **SmartCore::Engine::ReadWriteLock**: allow #read_sync invocations inside #write_sync;
+
 ## [0.16.0] - 2022-09-30
 ### Changed
 - `SmartCore::Engine::ReadWriteLock` does not lock the current thread if the current thread has already acquired the lock;

@@ -2,7 +2,7 @@
 
 # @api public
 # @since 0.14.0
-# @version 0.15.0
+# @version 0.17.0
 class SmartCore::Engine::ReadWriteLock
   # @return [void]
   #
@@ -21,7 +21,7 @@ class SmartCore::Engine::ReadWriteLock
   #
   # @api public
   # @since 0.14.0
-  # @version 0.15.0
+  # @version 0.17.0
   def read_sync(&block)
     @active_reader = true
     if @write_lock.locked? && @write_lock.owned?
